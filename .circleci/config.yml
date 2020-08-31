@@ -1,11 +1,10 @@
 version: 2.1
 orbs:
-  infracost: sashman/infracost@0.0.2
+  infracost: sashman/infracost@0.0.3
 
 workflows:
   build_and_test:
     jobs:
       - infracost/run-infracost-report:
-          parameters:
-            terraform_plan_file: plan.save
-            terraform_file_directory: terraform/
+          terraform_plan_file: plan.save
+          terraform_file_directory: terraform/
