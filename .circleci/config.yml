@@ -8,7 +8,7 @@ jobs:
       - image: endeveit/docker-jq
     steps:
       - attach_workspace:
-          root: /tmp/infracost
+          at: /tmp/infracost
       - run:
           name: Read JSON report
           command: /tmp/infracost/infracost.json | jq
