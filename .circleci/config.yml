@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  infracost: sashman/infracost@0.0.4
+  infracost: sashman/infracost@dev:1
 
 workflows:
   build_and_test:
