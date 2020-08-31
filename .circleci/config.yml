@@ -11,7 +11,7 @@ jobs:
           at: /tmp/infracost
       - run:
           name: Read JSON report
-          command: /tmp/infracost/infracost.json | jq
+          command: cat /tmp/infracost/infracost.json | jq
 
 workflows:
   build_and_test:
