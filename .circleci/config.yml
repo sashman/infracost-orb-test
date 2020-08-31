@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  infracost: sashman/infracost@dev:1
+  infracost: sashman/infracost@0.0.6
 
 jobs:
   read-report:
@@ -8,10 +8,10 @@ jobs:
       - image: endeveit/docker-jq
     steps:
       - attach_workspace:
-          at: /tmp/infracost
+          at: ~/report
       - run:
           name: Read JSON report
-          command: cat /tmp/infracost/infracost.json | jq
+          command: cat ~/report/infracost.json | jq
 
 workflows:
   build_and_test:
@@ -22,6 +22,7 @@ workflows:
       - infracost/save-infracost-json:
           terraform_plan_file: plan.save
           terraform_file_directory: terraform/
+          infracost_report_directory: ~/report
       - read-report:
           requires:
             - infracost/save-infracost-json
